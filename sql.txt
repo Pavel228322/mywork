@@ -1,0 +1,173 @@
+USE [Avto]
+GO
+/****** Object:  Table [dbo].[har_avto]    Script Date: 14.11.2019 15:04:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[har_avto](
+	[Price] [decimal](18, 2) NULL,
+	[Mileage] [int] NULL,
+	[CarNum] [varchar](9) NOT NULL,
+	[Firm] [varchar](50) NULL,
+	[Model] [varchar](50) NULL,
+	[Color] [varchar](50) NULL,
+	[Country] [varchar](10) NULL,
+	[Year] [int] NULL,
+	[EngineVolume] [decimal](18, 2) NULL,
+	[Power] [int] NULL,
+	[FuelType] [varchar](50) NULL,
+	[Description] [nvarchar](max) NULL,
+	[Status] [nvarchar](50) NULL,
+ CONSTRAINT [PK_har_avto_1] PRIMARY KEY CLUSTERED 
+(
+	[CarNum] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Pokupatel]    Script Date: 14.11.2019 15:04:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pokupatel](
+	[idPocupatel] [int] IDENTITY(1,1) NOT NULL,
+	[FullName] [varchar](50) NULL,
+	[Address] [varchar](50) NULL,
+	[Phone] [varchar](11) NULL,
+ CONSTRAINT [PK_Pokupatel] PRIMARY KEY CLUSTERED 
+(
+	[idPocupatel] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Prodaji]    Script Date: 14.11.2019 15:04:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Prodaji](
+	[CarNum] [varchar](9) NOT NULL,
+	[Seller] [int] NOT NULL,
+	[SeleDate] [date] NULL,
+	[Buyer] [int] NULL,
+ CONSTRAINT [PK_Prodaji] PRIMARY KEY CLUSTERED 
+(
+	[CarNum] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Prodavets]    Script Date: 14.11.2019 15:04:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Prodavets](
+	[idprodavets] [int] IDENTITY(1,1) NOT NULL,
+	[FullName] [varchar](45) NULL,
+	[Phone] [varchar](45) NULL,
+ CONSTRAINT [PK_Prodavets] PRIMARY KEY CLUSTERED 
+(
+	[idprodavets] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SystemUsers]    Script Date: 14.11.2019 15:04:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SystemUsers](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Password] [nvarchar](50) NULL,
+	[Login] [nvarchar](50) NULL,
+	[Role] [nvarchar](50) NULL,
+	[IdProdavets] [int] NULL,
+ CONSTRAINT [PK_SystemUsers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[har_avto] ([Price], [Mileage], [CarNum], [Firm], [Model], [Color], [Country], [Year], [EngineVolume], [Power], [FuelType], [Description], [Status]) VALUES (CAST(200000.00 AS Decimal(18, 2)), 226000, N'C780CA', N'Volkswagen', N'Passat', N'Green', N'Finldand', 2001, CAST(1.80 AS Decimal(18, 2)), 150, N'AI-95', N'Сост сел поехал', NULL)
+GO
+INSERT [dbo].[har_avto] ([Price], [Mileage], [CarNum], [Firm], [Model], [Color], [Country], [Year], [EngineVolume], [Power], [FuelType], [Description], [Status]) VALUES (CAST(200000.00 AS Decimal(18, 2)), 180000, N'C990CC', N'Nissal', N'Almera', N'Grey', N'Japan', 2010, CAST(2.00 AS Decimal(18, 2)), 120, N'AI-95', N'Имеются сколы на переднем и заднем бампере', NULL)
+GO
+INSERT [dbo].[har_avto] ([Price], [Mileage], [CarNum], [Firm], [Model], [Color], [Country], [Year], [EngineVolume], [Power], [FuelType], [Description], [Status]) VALUES (CAST(350000.00 AS Decimal(18, 2)), 198000, N'E989KX69', N'Toyota', N'Mark II jzx90', N'White', N'Japan', 1994, CAST(2.50 AS Decimal(18, 2)), 280, N'AI-95', N'Машинка конечно старенькая, но для своих лет прет как надо. Мотор в идеале.', N'Продан')
+GO
+INSERT [dbo].[har_avto] ([Price], [Mileage], [CarNum], [Firm], [Model], [Color], [Country], [Year], [EngineVolume], [Power], [FuelType], [Description], [Status]) VALUES (CAST(32.00 AS Decimal(18, 2)), 32, N'T222TT22', N'32', N'32', N'32', N'32', 32, CAST(32.00 AS Decimal(18, 2)), 32, N'32', N'', NULL)
+GO
+INSERT [dbo].[har_avto] ([Price], [Mileage], [CarNum], [Firm], [Model], [Color], [Country], [Year], [EngineVolume], [Power], [FuelType], [Description], [Status]) VALUES (CAST(100000.00 AS Decimal(18, 2)), 130000, N'X831CB69', N'Lada', N'2112', N'Black', N'Russia', 2012, CAST(1.60 AS Decimal(18, 2)), 81, N'AI-92', N'Игоря', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Pokupatel] ON 
+GO
+INSERT [dbo].[Pokupatel] ([idPocupatel], [FullName], [Address], [Phone]) VALUES (1, N'Ivanov Petya', N'Tver', N'896622332')
+GO
+INSERT [dbo].[Pokupatel] ([idPocupatel], [FullName], [Address], [Phone]) VALUES (2, N'Kuznetsov', N'Tver', N'9090')
+GO
+SET IDENTITY_INSERT [dbo].[Pokupatel] OFF
+GO
+INSERT [dbo].[Prodaji] ([CarNum], [Seller], [SeleDate], [Buyer]) VALUES (N'C780CA', 1, CAST(N'2019-11-14' AS Date), 1)
+GO
+INSERT [dbo].[Prodaji] ([CarNum], [Seller], [SeleDate], [Buyer]) VALUES (N'E989KX69', 1, CAST(N'2019-11-14' AS Date), 2)
+GO
+INSERT [dbo].[Prodaji] ([CarNum], [Seller], [SeleDate], [Buyer]) VALUES (N'X831CB69', 1, CAST(N'2019-11-14' AS Date), 2)
+GO
+SET IDENTITY_INSERT [dbo].[Prodavets] ON 
+GO
+INSERT [dbo].[Prodavets] ([idprodavets], [FullName], [Phone]) VALUES (1, N'Frolov Ura', N'8905784563')
+GO
+INSERT [dbo].[Prodavets] ([idprodavets], [FullName], [Phone]) VALUES (2, N'Shasha Patkov', N'8906735647')
+GO
+INSERT [dbo].[Prodavets] ([idprodavets], [FullName], [Phone]) VALUES (3, N'Orlov', N'212721')
+GO
+INSERT [dbo].[Prodavets] ([idprodavets], [FullName], [Phone]) VALUES (4, N'Kuznetsov', N'212112')
+GO
+INSERT [dbo].[Prodavets] ([idprodavets], [FullName], [Phone]) VALUES (5, N'sidorov', N'2112')
+GO
+SET IDENTITY_INSERT [dbo].[Prodavets] OFF
+GO
+SET IDENTITY_INSERT [dbo].[SystemUsers] ON 
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (1, N'1', N'1', N'Admin', NULL)
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (2, N'2', N'2', N'Seller', 1)
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (3, N'3', N'3', N'Seller', 2)
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (4, N'4', N'4', NULL, 3)
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (5, N'5', N'5', NULL, 4)
+GO
+INSERT [dbo].[SystemUsers] ([Id], [Password], [Login], [Role], [IdProdavets]) VALUES (6, N'6', N'6', NULL, 5)
+GO
+SET IDENTITY_INSERT [dbo].[SystemUsers] OFF
+GO
+ALTER TABLE [dbo].[Prodaji]  WITH CHECK ADD  CONSTRAINT [FK_Prodaji_har_avto] FOREIGN KEY([CarNum])
+REFERENCES [dbo].[har_avto] ([CarNum])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Prodaji] CHECK CONSTRAINT [FK_Prodaji_har_avto]
+GO
+ALTER TABLE [dbo].[Prodaji]  WITH CHECK ADD  CONSTRAINT [FK_Prodaji_Pokupatel] FOREIGN KEY([Buyer])
+REFERENCES [dbo].[Pokupatel] ([idPocupatel])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Prodaji] CHECK CONSTRAINT [FK_Prodaji_Pokupatel]
+GO
+ALTER TABLE [dbo].[Prodaji]  WITH CHECK ADD  CONSTRAINT [FK_Prodaji_Prodavets] FOREIGN KEY([Seller])
+REFERENCES [dbo].[Prodavets] ([idprodavets])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Prodaji] CHECK CONSTRAINT [FK_Prodaji_Prodavets]
+GO
+ALTER TABLE [dbo].[SystemUsers]  WITH CHECK ADD  CONSTRAINT [FK_SystemUsers_Prodavets] FOREIGN KEY([IdProdavets])
+REFERENCES [dbo].[Prodavets] ([idprodavets])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[SystemUsers] CHECK CONSTRAINT [FK_SystemUsers_Prodavets]
+GO
