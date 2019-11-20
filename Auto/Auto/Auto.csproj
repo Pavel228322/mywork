@@ -86,6 +86,12 @@
     <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Prodaji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Prodaji.Designer.cs">
+      <DependentUpon>Prodaji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SellerAddClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prodaji.resx">
+      <DependentUpon>Prodaji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SellerAddClient.resx">
       <DependentUpon>SellerAddClient.cs</DependentUpon>

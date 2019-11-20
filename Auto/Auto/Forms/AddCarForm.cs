@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Auto.AppData;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Auto.Forms
 {
     public partial class AddCarForm : Form
     {
         DataBaseModel db;
+        byte[] imgByte;
         public AddCarForm()
         {
             InitializeComponent();
@@ -63,10 +65,33 @@ namespace Auto.Forms
                 a.Year = Convert.ToInt32(textBox10.Text);
                 a.Country = textBox11.Text;
                 a.Description = richTextBox1.Text;
+            a.CarImg = imgByte;
                 db.har_avto.Add(a);
                 db.SaveChanges();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                imgByte = ImageToByte2(Image.FromFile(fd.FileName));
+            }
+        }
+
+        public static byte[] ImageToByte2(Image img)
+        {
+            byte[] byteArray = new byte[0];
+            using (MemoryStream stream = new MemoryStream())
+            {
+                img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                stream.Close();
+                
+                byteArray = stream.ToArray();
+            }
+            return byteArray;
         }
     }
 }

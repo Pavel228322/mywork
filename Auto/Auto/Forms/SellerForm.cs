@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,29 @@ namespace Auto.Forms
             {
 
             }
+            try
+            {
+                var carNum = dataGridView1.SelectedCells[0].Value;
+                var car = db.har_avto.FirstOrDefault(x => x.CarNum == carNum.ToString());
+                if (car != null)
+                {
+                    if (car.CarImg != null)
+                    {
+                        using (var ms = new MemoryStream(car.CarImg))
+                        {
+                            pictureBox1.Image = Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        pictureBox1.Image = Image.FromFile(@"empty.png");
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -89,11 +113,13 @@ namespace Auto.Forms
                 var carNum = dataGridView1.SelectedCells[0].Value;
                 var id = (dataGridView2.SelectedCells[0].Value).ToString();
                 var clientId = db.Pokupatel.FirstOrDefault(x => x.FullName == id).idPocupatel;
-                Prodaji p = new Prodaji();
+                AppData.Prodaji p = new AppData.Prodaji();
+                AppData.Prodaji p2 = new AppData.Prodaji();
                 p.SeleDate = DateTime.Now;
                 p.CarNum = carNum.ToString();
                 p.Seller = UserData.prodavets.idprodavets;
                 p.Buyer = clientId;
+
 
                 var car = db.har_avto.FirstOrDefault(x => x.CarNum == carNum.ToString());
                 car.Status = "Продан";

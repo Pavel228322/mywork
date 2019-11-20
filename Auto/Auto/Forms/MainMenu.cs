@@ -31,6 +31,7 @@ namespace Auto
                     MessageBox.Show("Введите все данные");
                     return;
                 }
+
                 var user = db.SystemUsers.FirstOrDefault(x => x.Login == textBox1.Text && x.Password == textBox2.Text);
 
                 if (user == null)
@@ -58,6 +59,11 @@ namespace Auto
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        private void Authorization_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,8 @@ namespace Auto.AppData
         [StringLength(50)]
         public string Status { get; set; }
 
+        public byte[] CarImg { get; set; }
+
         public virtual Prodaji Prodaji { get; set; }
     }
 }

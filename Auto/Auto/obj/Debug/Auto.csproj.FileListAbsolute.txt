@@ -1,7 +1,6 @@
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\bin\Debug\Auto.exe.config
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\bin\Debug\Auto.exe
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\bin\Debug\Auto.pdb
-D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.csprojAssemblyReference.cache
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Authorization.resources
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Properties.Resources.resources
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.csproj.GenerateResource.cache
@@ -21,3 +20,5 @@ D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Forms.AdminForm.reso
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Forms.WatchSellersForm.resources
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Forms.WatchCarsForm.resources
 D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Forms.AddCarForm.resources
+D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.Forms.Prodaji.resources
+D:\4-ПР2\Pavel Coursework\mywork\Auto\Auto\obj\Debug\Auto.csprojAssemblyReference.cache

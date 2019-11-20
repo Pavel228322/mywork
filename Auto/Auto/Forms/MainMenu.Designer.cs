@@ -57,6 +57,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(199, 150);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "1";
@@ -91,6 +92,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Authorization";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.Authorization_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
